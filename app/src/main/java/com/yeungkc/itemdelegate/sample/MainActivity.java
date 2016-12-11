@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,11 +18,11 @@ public class MainActivity extends AppCompatActivity {
 //    rv.setAdapter(adapter);
 
 
-        findViewById(R.id.reptielsActivity).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//        findViewById(R.id.reptielsActivity).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
 //                startActivity(new Intent(MainActivity.this, com.yeungkc.itemdelegates.sample.ReptilesActivity.class));
-            }
-        });
+//            }
+//        });
     }
 }
