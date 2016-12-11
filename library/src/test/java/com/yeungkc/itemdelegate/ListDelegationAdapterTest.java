@@ -1,4 +1,4 @@
-package com.yeungkc.itemdelegates;
+package com.yeungkc.itemdelegate;
 
 import java.util.List;
 import org.junit.Assert;

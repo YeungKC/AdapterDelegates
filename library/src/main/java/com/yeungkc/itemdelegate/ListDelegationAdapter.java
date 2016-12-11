@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.yeungkc.itemdelegates;
+package com.yeungkc.itemdelegate;
 
 import android.support.annotation.NonNull;
 
