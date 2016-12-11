@@ -1,8 +1,10 @@
 package com.yeungkc.itemdelegate;
 
-import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Hannes Dorfmann
@@ -18,7 +20,7 @@ public class ListDelegationAdapterTest {
       };
       Assert.fail("Expected NullPointerException");
     } catch (NullPointerException e) {
-      Assert.assertEquals("AdapterDelegatesManager is null", e.getMessage());
+      Assert.assertEquals("ItemDelegatesManager is null", e.getMessage());
     }
   }
 
