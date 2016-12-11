@@ -28,29 +28,7 @@ import java.util.List;
  * the corresponding {@link ItemDelegatesManager} methods from Adapter's method like {@link
  * #onCreateViewHolder(ViewGroup, int)}, {@link #onBindViewHolder(RecyclerView.ViewHolder, int)}
  * and {@link #getItemViewType(int)}. So everything is already setup for you. You just have to add
- * the {@link ItemDelegate}s i.e. in the constructor of a subclass that inheritance from this
- * class:
- * <pre>
- * {@code
- *    class MyAdapter extends AbsDelegationAdapter<MyDataSourceType>{
- *        public MyAdaper(){
- *            this.delegatesManager.add(new FooAdapterDelegate());
- *            this.delegatesManager.add(new BarAdapterDelegate());
- *        }
- *    }
- * }
- * </pre>
- * <p>
- * or you can pass a already prepared {@link ItemDelegatesManager} via constructor like this:
- * <pre>
- * {@code
- *    class MyAdapter extends AbsDelegationAdapter<MyDataSourceType>{
- *        public MyAdapter(AdapterDelegatesManager manager){
- *          super(manager)
- *        }
- *    }
- * }
- * </pre>
+ * the {@link ItemDelegate}s i.e.
  *
  * @param <T> The type of the datasoure / items
  * @author Hannes Dorfmann
@@ -66,7 +44,7 @@ public abstract class AbsDelegationAdapter<T> extends RecyclerView.Adapter {
 
     public AbsDelegationAdapter(@NonNull ItemDelegatesManager<T> delegatesManager) {
         if (delegatesManager == null) {
-            throw new NullPointerException("AdapterDelegatesManager is null");
+            throw new NullPointerException("ItemDelegatesManager is null");
         }
 
         this.delegatesManager = delegatesManager;
