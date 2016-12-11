@@ -5,7 +5,7 @@ android {
   buildToolsVersion rootProject.ext.buildTools
 
   defaultConfig {
-    applicationId "com.hannesdorfmann.adapterdelegates.sample"
+    applicationId "com.yeungkc.itemdelegate.sample"
     minSdkVersion 8
     targetSdkVersion 24
     versionCode 1

@@ -17,11 +17,4 @@
       />
 
 
-  <Button
-      android:id="@+id/reptielsActivity"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="Reptiles without Advertisement"
-      />
-
 </LinearLayout>
