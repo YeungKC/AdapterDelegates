@@ -1,4 +1,4 @@
-package com.yeungkc.itemdelegates;
+package com.yeungkc.itemdelegate;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

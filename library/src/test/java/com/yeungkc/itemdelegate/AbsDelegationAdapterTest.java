@@ -1,4 +1,4 @@
-package com.yeungkc.itemdelegates;
+package com.yeungkc.itemdelegate;
 
 import android.view.ViewGroup;
 import java.util.Collections;
