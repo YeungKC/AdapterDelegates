@@ -34,7 +34,7 @@ import java.util.List;
  * </p>
  * <p>
  * <p>
- * Next you have to add this AdapterDelegatesManager to the {@link RecyclerView.Adapter} by calling
+ * Next you have to add this ItemDelegatesManager to the {@link RecyclerView.Adapter} by calling
  * corresponding methods:
  * <ul>
  * <li> {@link #getItemViewType(Object, int)}: Must be called from {@link
@@ -68,7 +68,7 @@ public class ItemDelegatesManager<T> {
     private static final List<Object> PAYLOADS_EMPTY_LIST = Collections.emptyList();
 
     /**
-     * Map for ViewType to AdapterDelegate
+     * Map for ViewType to ItemDelegate
      */
     protected SparseArrayCompat<ItemDelegate<T>> delegates = new SparseArrayCompat();
     protected ItemDelegate<T> fallbackDelegate;
@@ -95,7 +95,7 @@ public class ItemDelegatesManager<T> {
             viewType++;
             if (viewType == FALLBACK_DELEGATE_VIEW_TYPE) {
                 throw new IllegalArgumentException(
-                        "Oops, we are very close to Integer.MAX_VALUE. It seems that there are no more free and unused view type integers left to add another AdapterDelegate.");
+                        "Oops, we are very close to Integer.MAX_VALUE. It seems that there are no more free and unused view type integers left to add another ItemDelegate.");
             }
         }
         return addDelegate(viewType, false, delegate);
@@ -123,7 +123,7 @@ public class ItemDelegatesManager<T> {
                                                @NonNull ItemDelegate<T> delegate) {
 
         if (delegate == null) {
-            throw new NullPointerException("AdapterDelegate is null!");
+            throw new NullPointerException("ItemDelegate is null!");
         }
 
         if (viewType == FALLBACK_DELEGATE_VIEW_TYPE) {
@@ -134,9 +134,9 @@ public class ItemDelegatesManager<T> {
 
         if (!allowReplacingDelegate && delegates.get(viewType) != null) {
             throw new IllegalArgumentException(
-                    "An AdapterDelegate is already registered for the viewType = "
+                    "An ItemDelegate is already registered for the viewType = "
                             + viewType
-                            + ". Already registered AdapterDelegate is "
+                            + ". Already registered ItemDelegate is "
                             + delegates.get(viewType));
         }
 
@@ -175,7 +175,7 @@ public class ItemDelegatesManager<T> {
     public ItemDelegatesManager<T> removeDelegate(@NonNull ItemDelegate<T> delegate) {
 
         if (delegate == null) {
-            throw new NullPointerException("AdapterDelegate is null");
+            throw new NullPointerException("ItemDelegate is null");
         }
 
         int indexToRemove = delegates.indexOfValue(delegate);
@@ -187,7 +187,7 @@ public class ItemDelegatesManager<T> {
     }
 
     /**
-     * Removes the adapterDelegate for the given view types.
+     * Removes the ItemDelegate for the given view types.
      *
      * @param viewType The Viewtype
      * @return self
@@ -238,7 +238,7 @@ public class ItemDelegatesManager<T> {
         }
 
         throw new NullPointerException(
-                "No AdapterDelegate added that matches position=" + position + " in data source");
+                "No ItemDelegate added that matches position=" + position + " in data source");
     }
 
     public long getItemId(@NonNull T items, int position) {
@@ -252,19 +252,19 @@ public class ItemDelegatesManager<T> {
      * @param parent   the parent
      * @param viewType the view type
      * @return The new created ViewHolder
-     * @throws NullPointerException if no AdapterDelegate has been registered for ViewHolders
+     * @throws NullPointerException if no ItemDelegate has been registered for ViewHolders
      *                              viewType
      */
     @NonNull
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ItemDelegate<T> delegate = getDelegateForViewType(viewType);
         if (delegate == null) {
-            throw new NullPointerException("No AdapterDelegate added for ViewType " + viewType);
+            throw new NullPointerException("No ItemDelegate added for ViewType " + viewType);
         }
 
         RecyclerView.ViewHolder vh = delegate.onCreateViewHolder(parent);
         if (vh == null) {
-            throw new NullPointerException("ViewHolder returned from AdapterDelegate "
+            throw new NullPointerException("ViewHolder returned from ItemDelegate "
                     + delegate
                     + " for ViewType ="
                     + viewType
@@ -303,7 +303,7 @@ public class ItemDelegatesManager<T> {
      * @param items      Adapter's data source
      * @param position   the position in data source
      * @param viewHolder the ViewHolder to bind
-     * @throws NullPointerException if no AdapterDelegate has been registered for ViewHolders
+     * @throws NullPointerException if no ItemDelegate has been registered for ViewHolders
      *                              viewType
      */
     public void onBindViewHolder(@NonNull T items, int position,
@@ -319,7 +319,7 @@ public class ItemDelegatesManager<T> {
      * @param position   the position in data source
      * @param viewHolder the ViewHolder to bind
      * @param payloads   A non-null list of merged payloads. Can be empty list if requires full update.
-     * @throws NullPointerException if no AdapterDelegate has been registered for ViewHolders
+     * @throws NullPointerException if no ItemDelegate has been registered for ViewHolders
      *                              viewType
      */
     public void onBindViewHolder(@NonNull T items, int position,
@@ -447,9 +447,9 @@ public class ItemDelegatesManager<T> {
      * can handle a certain view type.
      *
      * @param fallbackDelegate The {@link ItemDelegate} that should be used as fallback if no
-     *                         other AdapterDelegate has handled a certain view type. <code>null</code> you can set this to
+     *                         other ItemDelegate has handled a certain view type. <code>null</code> you can set this to
      *                         null if
-     *                         you want to remove a previously set fallback AdapterDelegate
+     *                         you want to remove a previously set fallback ItemDelegate
      */
     public ItemDelegatesManager<T> setFallbackDelegate(
             @Nullable ItemDelegate<T> fallbackDelegate) {
