@@ -23,6 +23,7 @@ ext {
     SUPPORT_VERSION = '25.0.1'
     recyclerView = "com.android.support:recyclerview-v7:25.0.1"
     appCompat = "com.android.support:appcompat-v7:25.0.1"
+    design = "com.android.support:design:25.0.1"
 
     buildTools = '25.0.1'
 }
