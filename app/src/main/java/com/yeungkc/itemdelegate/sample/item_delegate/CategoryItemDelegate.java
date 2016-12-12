@@ -27,7 +27,7 @@ public class CategoryItemDelegate extends AbsListItemItemDelegate<Category, Obje
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull Category item, @NonNull CategoryViewHolder viewHolder, @NonNull List<Object> payloads) {
+    protected void onBindViewHolder(@NonNull Category item, @NonNull CategoryViewHolder viewHolder, @NonNull List payloads) {
         viewHolder.bind(item);
     }
 

@@ -27,7 +27,7 @@ public class PostItemDelegate extends AbsListItemItemDelegate<Post,Object,PostIt
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull Post item, @NonNull PostViewHolder viewHolder, @NonNull List<Object> payloads) {
+    protected void onBindViewHolder(@NonNull Post item, @NonNull PostViewHolder viewHolder, @NonNull List payloads) {
         viewHolder.bind(item);
     }
 

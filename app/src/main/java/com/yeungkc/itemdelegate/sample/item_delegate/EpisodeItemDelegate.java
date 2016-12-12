@@ -1,6 +1,7 @@
 package com.yeungkc.itemdelegate.sample.item_delegate;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,16 +13,24 @@ import com.yeungkc.itemdelegate.sample.R;
 import com.yeungkc.itemdelegate.sample.bean.Episode;
 
 import java.util.List;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class EpisodeItemDelegate extends AbsListItemItemDelegate<Episode, Object, EpisodeItemDelegate.EpisodeViewHolder> {
-    private final TreeSet<Integer> mSelectedSet;
+    private final Set<Integer> mSelectedSet;
 
     public EpisodeItemDelegate() {
-        this.mSelectedSet = new TreeSet<>();
+        this(null);
     }
 
-    public TreeSet<Integer> getSelectedSet() {
+    public EpisodeItemDelegate(@Nullable TreeSet<Integer> selectedSet) {
+        if (selectedSet == null) {
+            selectedSet = new TreeSet<>();
+        }
+        mSelectedSet = selectedSet;
+    }
+
+    public Set<Integer> getSelectedSet() {
         return mSelectedSet;
     }
 
@@ -42,7 +51,7 @@ public class EpisodeItemDelegate extends AbsListItemItemDelegate<Episode, Object
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull Episode item, @NonNull EpisodeViewHolder viewHolder, @NonNull List<Object> payloads) {
+    protected void onBindViewHolder(@NonNull Episode item, @NonNull EpisodeViewHolder viewHolder, @NonNull List payloads) {
         viewHolder.bind(item);
     }
 

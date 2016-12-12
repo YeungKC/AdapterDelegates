@@ -1,7 +1,6 @@
 package com.yeungkc.itemdelegate;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
@@ -48,8 +47,9 @@ public abstract class AbsListItemItemDelegate<I extends T, T, VH extends Recycle
     protected abstract VH onCreateViewHolder(@NonNull ViewGroup parent);
 
     @Override
+    @SuppressWarnings("unchecked")
     protected final void onBindViewHolder(@NonNull List<T> items, int position,
-                                          @NonNull RecyclerView.ViewHolder holder, @Nullable List<Object> payloads) {
+                                          @NonNull RecyclerView.ViewHolder holder, @NonNull List payloads) {
         onBindViewHolder((I) items.get(position), (VH) holder, payloads);
     }
 
@@ -61,5 +61,5 @@ public abstract class AbsListItemItemDelegate<I extends T, T, VH extends Recycle
      * @param viewHolder The payloads
      */
     protected abstract void onBindViewHolder(@NonNull I item, @NonNull VH viewHolder,
-                                             @NonNull List<Object> payloads);
+                                             @NonNull List payloads);
 }

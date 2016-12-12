@@ -65,12 +65,12 @@ public class ItemDelegatesManager<T> {
      * Used internally for {@link #onBindViewHolder(Object, int, RecyclerView.ViewHolder)} as empty
      * payload parameter
      */
-    private static final List<Object> PAYLOADS_EMPTY_LIST = Collections.emptyList();
+    private static final List PAYLOADS_EMPTY_LIST = Collections.emptyList();
 
     /**
      * Map for ViewType to ItemDelegate
      */
-    protected SparseArrayCompat<ItemDelegate<T>> delegates = new SparseArrayCompat();
+    protected SparseArrayCompat<ItemDelegate<T>> delegates = new SparseArrayCompat<>();
     protected ItemDelegate<T> fallbackDelegate;
 
     /**
@@ -323,7 +323,7 @@ public class ItemDelegatesManager<T> {
      *                              viewType
      */
     public void onBindViewHolder(@NonNull T items, int position,
-                                 @NonNull RecyclerView.ViewHolder viewHolder, @Nullable List payloads) {
+                                 @NonNull RecyclerView.ViewHolder viewHolder, @NonNull List payloads) {
 
         ItemDelegate<T> delegate = getDelegateForViewType(viewHolder.getItemViewType());
         if (delegate == null) {
