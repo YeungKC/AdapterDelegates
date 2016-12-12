@@ -62,7 +62,7 @@ public abstract class ItemDelegate<T> {
      * @param payloads A non-null list of merged payloads. Can be empty list if requires full update.
      */
     protected abstract void onBindViewHolder(@NonNull T items, int position,
-                                             @NonNull RecyclerView.ViewHolder holder, @NonNull List<Object> payloads);
+                                             @NonNull RecyclerView.ViewHolder holder, @NonNull List payloads);
 
     /**
      * Called when a view created by this adapter has been recycled.

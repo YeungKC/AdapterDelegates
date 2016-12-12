@@ -18,7 +18,7 @@ public class ItemDelegatesManagerTest {
   @Test public void addRemove() {
 
     ItemDelegate d1 = new ItemDelegate() {
-      @Override public boolean isForViewType(Object items, int position) {
+      @Override public boolean isForViewType(@NonNull Object items, int position) {
         return false;
       }
 
@@ -33,7 +33,7 @@ public class ItemDelegatesManagerTest {
     };
 
     ItemDelegate d2 = new ItemDelegate() {
-      @Override public boolean isForViewType(Object items, int position) {
+      @Override public boolean isForViewType(@NonNull Object items, int position) {
         return false;
       }
 
