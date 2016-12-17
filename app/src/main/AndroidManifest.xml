@@ -20,12 +20,15 @@
       </intent-filter>
     </activity>
     <activity android:name=".activity.MultiTypeActivity"
+              android:label="MultiTypeActivity"
               android:parentActivityName=".activity.MainActivity"
         />
     <activity android:name=".activity.MultiSelectActivity"
+              android:label="MultiSelectActivity"
               android:parentActivityName=".activity.MainActivity"
         />
     <activity android:name=".activity.RecyclerViewNestedActivity"
+              android:label="RecyclerViewNestedActivity"
               android:parentActivityName=".activity.MainActivity"
         />
   </application>
