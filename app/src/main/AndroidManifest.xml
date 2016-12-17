@@ -25,6 +25,9 @@
     <activity android:name=".activity.MultiSelectActivity"
               android:parentActivityName=".activity.MainActivity"
         />
+    <activity android:name=".activity.RecyclerViewNestedActivity"
+              android:parentActivityName=".activity.MainActivity"
+        />
   </application>
 
 </manifest>
