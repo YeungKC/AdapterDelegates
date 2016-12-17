@@ -34,7 +34,7 @@ public class MultiTypeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_multi_type);
+        setContentView(R.layout.activity_rv);
         mSpanCount = getIntent().getIntExtra(SPAN_COUNT_KEY, mSpanCount);
 
         ItemDelegatesManager<List<Object>> listItemDelegatesManager = new ItemDelegatesManager<>();

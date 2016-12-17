@@ -20,4 +20,10 @@
 		android:layout_width="match_parent"
 		android:text="MultiSelect"
 		android:layout_height="wrap_content"/>
+
+	<Button
+		android:id="@+id/rv_nested"
+		android:layout_width="match_parent"
+		android:text="RecyclerViewNested"
+		android:layout_height="wrap_content"/>
 </LinearLayout>
