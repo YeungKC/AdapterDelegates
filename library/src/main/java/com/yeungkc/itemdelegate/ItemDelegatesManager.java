@@ -458,6 +458,6 @@ public class ItemDelegatesManager<T> {
     }
 
     public int getSpanSize(@NonNull T items, int position, int spanCount) {
-        return getDelegate(items, position).getSpanCount(items, position, spanCount);
+        return getDelegate(items, position).getSpan(items, position, spanCount);
     }
 }

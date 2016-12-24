@@ -37,7 +37,7 @@ public class CategoryItemDelegate extends AbsListItemItemDelegate<Category, Obje
     }
 
     @Override
-    protected int getSpanCount(@NonNull List<Object> items, int position, int spanCount) {
+    protected int getSpan(@NonNull List<Object> items, int position, int spanCount) {
         return spanCount;
     }
 
