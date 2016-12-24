@@ -62,4 +62,14 @@ public abstract class AbsListItemItemDelegate<I extends T, T, VH extends Recycle
      */
     protected abstract void onBindViewHolder(@NonNull I item, @NonNull VH viewHolder,
                                              @NonNull List payloads);
+
+    @Override
+    @SuppressWarnings("unchecked")
+    protected final long getItemId(@NonNull List<T> items, int position) {
+        return getItemId((I) items.get(position), items, position);
+    }
+
+    protected long getItemId(@NonNull I item, @NonNull List<T> items, int position) {
+        return super.getItemId(items, position);
+    }
 }

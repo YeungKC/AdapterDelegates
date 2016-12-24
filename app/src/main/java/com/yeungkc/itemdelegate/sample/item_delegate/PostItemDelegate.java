@@ -32,8 +32,8 @@ public class PostItemDelegate extends AbsListItemItemDelegate<Post,Object,PostIt
     }
 
     @Override
-    protected long getItemId(@NonNull List<Object> items, int position) {
-        return items.get(position).hashCode();
+    protected long getItemId(@NonNull Post item, @NonNull List<Object> items, int position) {
+        return item.hashCode();
     }
 
     @Override

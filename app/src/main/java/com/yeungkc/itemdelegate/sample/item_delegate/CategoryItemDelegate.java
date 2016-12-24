@@ -32,8 +32,8 @@ public class CategoryItemDelegate extends AbsListItemItemDelegate<Category, Obje
     }
 
     @Override
-    protected long getItemId(@NonNull List<Object> items, int position) {
-        return items.get(position).hashCode();
+    protected long getItemId(@NonNull Category item, @NonNull List<Object> items, int position) {
+        return item.hashCode();
     }
 
     @Override
