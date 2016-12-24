@@ -46,8 +46,8 @@ public class EpisodeItemDelegate extends AbsListItemItemDelegate<Episode, Object
     }
 
     @Override
-    protected long getItemId(@NonNull List<Object> items, int position) {
-        return items.get(position).hashCode();
+    protected long getItemId(@NonNull Episode item, @NonNull List<Object> items, int position) {
+        return item.hashCode();
     }
 
     @Override

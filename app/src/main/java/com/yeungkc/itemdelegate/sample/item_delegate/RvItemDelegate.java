@@ -35,8 +35,8 @@ public class RvItemDelegate extends AbsListItemItemDelegate<List<Post>,List<Post
     }
 
     @Override
-    protected long getItemId(@NonNull List<List<Post>> items, int position) {
-        return items.hashCode();
+    protected long getItemId(@NonNull List<Post> item, @NonNull List<List<Post>> items, int position) {
+        return item.hashCode();
     }
 
     public class RvViewHolder extends RecyclerView.ViewHolder {
