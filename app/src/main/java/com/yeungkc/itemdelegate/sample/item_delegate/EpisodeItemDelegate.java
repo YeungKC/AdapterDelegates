@@ -17,20 +17,20 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class EpisodeItemDelegate extends AbsListItemItemDelegate<Episode, Object, EpisodeItemDelegate.EpisodeViewHolder> {
-    private final Set<Integer> mSelectedSet;
+    private final Set<String> mSelectedSet;
 
     public EpisodeItemDelegate() {
         this(null);
     }
 
-    public EpisodeItemDelegate(@Nullable TreeSet<Integer> selectedSet) {
+    public EpisodeItemDelegate(@Nullable TreeSet<String> selectedSet) {
         if (selectedSet == null) {
             selectedSet = new TreeSet<>();
         }
         mSelectedSet = selectedSet;
     }
 
-    public Set<Integer> getSelectedSet() {
+    public Set<String> getSelectedSet() {
         return mSelectedSet;
     }
 

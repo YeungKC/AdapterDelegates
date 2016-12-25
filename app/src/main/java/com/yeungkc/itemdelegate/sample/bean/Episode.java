@@ -2,15 +2,15 @@ package com.yeungkc.itemdelegate.sample.bean;
 
 public class Episode {
 
-    private final int mNum;
+    private final String mName;
     private boolean mSelected;
 
-    public Episode(int num) {
-        mNum = num;
+    public Episode(String name) {
+        mName = name;
     }
 
-    public int getNum() {
-        return mNum;
+    public String getNum() {
+        return mName;
     }
 
     public boolean isSelected() {
@@ -28,14 +28,14 @@ public class Episode {
 
         Episode episode = (Episode) o;
 
-        if (mNum != episode.mNum) return false;
-        return mSelected == episode.mSelected;
+        if (mSelected != episode.mSelected) return false;
+        return mName != null ? mName.equals(episode.mName) : episode.mName == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = mNum;
+        int result = mName != null ? mName.hashCode() : 0;
         result = 31 * result + (mSelected ? 1 : 0);
         return result;
     }
