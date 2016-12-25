@@ -56,8 +56,13 @@ public class CompanyItemDelegate extends AbsListItemItemDelegate<Company, Compan
 
                     RecyclerView.Adapter adapter = ((RecyclerView) itemView.getParent()).getAdapter();
 
-                    adapter.notifyItemChanged(oldPosition);
                     adapter.notifyItemChanged(mCurrentPosition);
+
+                    if (oldPosition == mCurrentPosition) {
+                        return;
+                    }
+
+                    adapter.notifyItemChanged(oldPosition);
                 }
             });
 
