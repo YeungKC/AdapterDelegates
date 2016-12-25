@@ -60,12 +60,12 @@ public class MultiSelectActivity extends AppCompatActivity {
 
         dataSets.add(new Category("第一季"));
         for (int i = 1; i <= 10; i++) {
-            dataSets.add(new Episode(i));
+            dataSets.add(new Episode("S01 " + i));
         }
 
         dataSets.add(new Category("第二季"));
         for (int i = 1; i <= 300; i++) {
-            dataSets.add(new Episode(i));
+            dataSets.add(new Episode("S02 " + i));
         }
 
         return dataSets;
@@ -76,8 +76,8 @@ public class MultiSelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 StringBuilder content = new StringBuilder();
-                for (Integer num : mEpisodeItemDelegate.getSelectedSet()) {
-                    content.append(num).append(" ");
+                for (String name : mEpisodeItemDelegate.getSelectedSet()) {
+                    content.append(name).append(" ");
                 }
 
                 Toast.makeText(view.getContext(), content, Toast.LENGTH_SHORT).show();
