@@ -31,7 +31,7 @@ public class MultiSelectActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_multi_select);
+        setContentView(R.layout.activity_rv_and_fab);
 
         ItemDelegatesManager<List<Object>> listItemDelegatesManager = new ItemDelegatesManager<>();
         mEpisodeItemDelegate = new EpisodeItemDelegate();
