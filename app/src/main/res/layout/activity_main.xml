@@ -16,6 +16,12 @@
 		android:layout_height="wrap_content"/>
 
 	<Button
+		android:id="@+id/single_select"
+		android:layout_width="match_parent"
+		android:text="SINGLE SELECT"
+		android:layout_height="wrap_content"/>
+
+	<Button
 		android:id="@+id/multi_select"
 		android:layout_width="match_parent"
 		android:text="MULTI SELECT"

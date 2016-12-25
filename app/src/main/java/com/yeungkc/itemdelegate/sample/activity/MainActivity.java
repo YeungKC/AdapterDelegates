@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity{
 
         findViewById(R.id.multi_type).setOnClickListener(mListener);
         findViewById(R.id.multi_type_span).setOnClickListener(mListener);
+        findViewById(R.id.single_select).setOnClickListener(mListener);
         findViewById(R.id.multi_select).setOnClickListener(mListener);
         findViewById(R.id.rv_nested).setOnClickListener(mListener);
     }
@@ -32,6 +33,9 @@ public class MainActivity extends AppCompatActivity{
                     break;
                 case R.id.multi_select:
                     MultiSelectActivity.startActivity(MainActivity.this);
+                    break;
+                case R.id.single_select:
+                    SingleSelectActivity.startActivity(MainActivity.this);
                     break;
                 case R.id.rv_nested:
                     RecyclerViewNestedActivity.startActivity(MainActivity.this);

@@ -23,6 +23,10 @@
               android:label="MultiTypeActivity"
               android:parentActivityName=".activity.MainActivity"
         />
+    <activity android:name=".activity.SingleSelectActivity"
+              android:label="SingleSelectActivity"
+              android:parentActivityName=".activity.MainActivity"
+        />
     <activity android:name=".activity.MultiSelectActivity"
               android:label="MultiSelectActivity"
               android:parentActivityName=".activity.MainActivity"
