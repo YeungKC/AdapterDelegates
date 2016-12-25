@@ -6,24 +6,24 @@
 	<Button
 		android:id="@+id/multi_type"
 		android:layout_width="match_parent"
-		android:text="MultiType"
+		android:text="MULTI TYPE"
 		android:layout_height="wrap_content"/>
 
 	<Button
 		android:id="@+id/multi_type_span"
 		android:layout_width="match_parent"
-		android:text="MultiType(span)"
+		android:text="MULTI TYPE(SPAN)"
 		android:layout_height="wrap_content"/>
 
 	<Button
 		android:id="@+id/multi_select"
 		android:layout_width="match_parent"
-		android:text="MultiSelect"
+		android:text="MULTI SELECT"
 		android:layout_height="wrap_content"/>
 
 	<Button
 		android:id="@+id/rv_nested"
 		android:layout_width="match_parent"
-		android:text="RecyclerViewNested"
+		android:text="RECYCLER VIEW NESTED"
 		android:layout_height="wrap_content"/>
 </LinearLayout>
