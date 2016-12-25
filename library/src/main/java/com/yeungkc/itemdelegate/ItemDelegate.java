@@ -151,7 +151,7 @@ public abstract class ItemDelegate<T> {
     protected void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
     }
 
-    protected int getSpan(@NonNull T items, int position, int spanCount) {
+    protected int getSpanSize(@NonNull T items, int position, int spanCount) {
         return 1;
     }
 

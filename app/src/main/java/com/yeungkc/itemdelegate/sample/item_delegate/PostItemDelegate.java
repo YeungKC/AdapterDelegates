@@ -37,9 +37,9 @@ public class PostItemDelegate extends AbsListItemItemDelegate<Post,Object,PostIt
     }
 
     @Override
-    protected int getSpan(@NonNull List<Object> items, int position, int spanCount) {
+    protected int getSpanSize(@NonNull List<Object> items, int position, int spanCount) {
         // default value = 1
-        return super.getSpan(items, position, spanCount);
+        return super.getSpanSize(items, position, spanCount);
     }
 
     class PostViewHolder extends RecyclerView.ViewHolder {
