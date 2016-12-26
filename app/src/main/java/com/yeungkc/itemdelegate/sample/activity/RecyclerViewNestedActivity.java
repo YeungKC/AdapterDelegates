@@ -8,8 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.yeungkc.itemdelegate.ItemDelegatesManager;
 import com.yeungkc.itemdelegate.ListDelegationAdapter;
+import com.yeungkc.itemdelegate.ListItemDelegatesManager;
 import com.yeungkc.itemdelegate.sample.R;
 import com.yeungkc.itemdelegate.sample.bean.Post;
 import com.yeungkc.itemdelegate.sample.item_delegate.RvItemDelegate;
@@ -28,10 +28,10 @@ public class RecyclerViewNestedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rv);
 
-        ItemDelegatesManager<List<List<Post>>> listItemDelegatesManager = new ItemDelegatesManager<>();
+        ListItemDelegatesManager<List<Post>> listItemDelegatesManager = new ListItemDelegatesManager<>();
         listItemDelegatesManager.addDelegate(new RvItemDelegate());
 
-        ListDelegationAdapter<List<List<Post>>> adapter = new ListDelegationAdapter<>(listItemDelegatesManager);
+        ListDelegationAdapter<List<Post>> adapter = new ListDelegationAdapter<>(listItemDelegatesManager);
         adapter.setHasStableIds(true);
 
         LinearLayoutManager layout = new LinearLayoutManager(this);
