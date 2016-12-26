@@ -8,16 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.yeungkc.itemdelegate.ItemDelegatesManager;
 import com.yeungkc.itemdelegate.ListDelegationAdapter;
-import com.yeungkc.itemdelegate.sample.bean.Category;
-import com.yeungkc.itemdelegate.sample.item_delegate.CategoryItemDelegate;
-import com.yeungkc.itemdelegate.sample.bean.Post;
-import com.yeungkc.itemdelegate.sample.item_delegate.PostItemDelegate;
+import com.yeungkc.itemdelegate.ListItemDelegatesManager;
 import com.yeungkc.itemdelegate.sample.R;
+import com.yeungkc.itemdelegate.sample.bean.Category;
+import com.yeungkc.itemdelegate.sample.bean.Post;
+import com.yeungkc.itemdelegate.sample.item_delegate.CategoryItemDelegate;
+import com.yeungkc.itemdelegate.sample.item_delegate.PostItemDelegate;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MultiTypeActivity extends AppCompatActivity {
 
@@ -37,7 +36,7 @@ public class MultiTypeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rv);
         mSpanCount = getIntent().getIntExtra(SPAN_COUNT_KEY, mSpanCount);
 
-        ItemDelegatesManager<List<Object>> listItemDelegatesManager = new ItemDelegatesManager<>();
+        ListItemDelegatesManager<Object> listItemDelegatesManager = new ListItemDelegatesManager<>();
         listItemDelegatesManager.addDelegate(new CategoryItemDelegate());
         listItemDelegatesManager.addDelegate(new PostItemDelegate());
 

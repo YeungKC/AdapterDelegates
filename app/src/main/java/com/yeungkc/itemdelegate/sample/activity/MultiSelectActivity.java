@@ -9,8 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
-import com.yeungkc.itemdelegate.ItemDelegatesManager;
 import com.yeungkc.itemdelegate.ListDelegationAdapter;
+import com.yeungkc.itemdelegate.ListItemDelegatesManager;
 import com.yeungkc.itemdelegate.sample.R;
 import com.yeungkc.itemdelegate.sample.bean.Category;
 import com.yeungkc.itemdelegate.sample.bean.Episode;
@@ -18,7 +18,6 @@ import com.yeungkc.itemdelegate.sample.item_delegate.CategoryItemDelegate;
 import com.yeungkc.itemdelegate.sample.item_delegate.EpisodeItemDelegate;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MultiSelectActivity extends AppCompatActivity {
 
@@ -33,7 +32,7 @@ public class MultiSelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rv_and_fab);
 
-        ItemDelegatesManager<List<Object>> listItemDelegatesManager = new ItemDelegatesManager<>();
+        ListItemDelegatesManager<Object> listItemDelegatesManager = new ListItemDelegatesManager<>();
         mEpisodeItemDelegate = new EpisodeItemDelegate();
         listItemDelegatesManager.addDelegate(new CategoryItemDelegate())
                 .addDelegate(mEpisodeItemDelegate);

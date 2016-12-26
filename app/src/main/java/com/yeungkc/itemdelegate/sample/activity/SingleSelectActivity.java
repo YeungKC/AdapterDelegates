@@ -12,14 +12,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.yeungkc.itemdelegate.ItemDelegatesManager;
 import com.yeungkc.itemdelegate.ListDelegationAdapter;
+import com.yeungkc.itemdelegate.ListItemDelegatesManager;
 import com.yeungkc.itemdelegate.sample.R;
 import com.yeungkc.itemdelegate.sample.bean.Company;
 import com.yeungkc.itemdelegate.sample.item_delegate.CompanyItemDelegate;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class SingleSelectActivity extends AppCompatActivity {
 
@@ -35,7 +34,7 @@ public class SingleSelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rv_and_fab);
 
-        ItemDelegatesManager<List<Company>> listItemDelegatesManager = new ItemDelegatesManager<>();
+        ListItemDelegatesManager<Company> listItemDelegatesManager = new ListItemDelegatesManager<>();
         mCompanyItemDelegate = new CompanyItemDelegate();
         listItemDelegatesManager.addDelegate(mCompanyItemDelegate);
 
