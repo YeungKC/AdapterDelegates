@@ -38,7 +38,7 @@ public class MultiSelectActivity extends AppCompatActivity {
         listItemDelegatesManager.addDelegate(new CategoryItemDelegate())
                 .addDelegate(mEpisodeItemDelegate);
 
-        ListDelegationAdapter<List<Object>> adapter = new ListDelegationAdapter<>(listItemDelegatesManager);
+        ListDelegationAdapter<Object> adapter = new ListDelegationAdapter<>(listItemDelegatesManager);
         adapter.setHasStableIds(true);
 
         GridLayoutManager layout = new GridLayoutManager(this, 5);

@@ -39,7 +39,7 @@ public class SingleSelectActivity extends AppCompatActivity {
         mCompanyItemDelegate = new CompanyItemDelegate();
         listItemDelegatesManager.addDelegate(mCompanyItemDelegate);
 
-        ListDelegationAdapter<List<Company>> adapter = new ListDelegationAdapter<>(listItemDelegatesManager);
+        ListDelegationAdapter<Company> adapter = new ListDelegationAdapter<>(listItemDelegatesManager);
         adapter.setHasStableIds(true);
 
         RecyclerView.LayoutManager layout = new LinearLayoutManager(this);
