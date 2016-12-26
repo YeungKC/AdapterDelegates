@@ -30,13 +30,13 @@ import java.util.List;
  * and {@link #getItemViewType(int)}. So everything is already setup for you. You just have to add
  * the {@link ItemDelegate}s i.e.
  *
- * @param <T> The type of the datasoure / items
+ * @param <T> The type of the dataSource / dataSets
  * @author Hannes Dorfmann
  */
 public abstract class AbsDelegationAdapter<T> extends RecyclerView.Adapter {
 
     protected ItemDelegatesManager<T> delegatesManager;
-    protected T items;
+    protected T dataSets;
 
     public AbsDelegationAdapter() {
         this(new ItemDelegatesManager<T>());
@@ -57,22 +57,22 @@ public abstract class AbsDelegationAdapter<T> extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        delegatesManager.onBindViewHolder(items, position, holder);
+        delegatesManager.onBindViewHolder(dataSets, position, holder);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, List payloads) {
-        delegatesManager.onBindViewHolder(items, position, holder, payloads);
+        delegatesManager.onBindViewHolder(dataSets, position, holder, payloads);
     }
 
     @Override
     public int getItemViewType(int position) {
-        return delegatesManager.getItemViewType(items, position);
+        return delegatesManager.getItemViewType(dataSets, position);
     }
 
     @Override
     public long getItemId(int position) {
-        return delegatesManager.getItemId(items, position);
+        return delegatesManager.getItemId(dataSets, position);
     }
 
     @Override
@@ -96,28 +96,28 @@ public abstract class AbsDelegationAdapter<T> extends RecyclerView.Adapter {
     }
 
     /**
-     * Get the items / data source of this adapter
+     * Get the dataSets / data source of this adapter
      *
-     * @return The items / data source
+     * @return The dataSets / data source
      */
-    public T getItems() {
-        return items;
+    public T getDataSets() {
+        return dataSets;
     }
 
     /**
-     * Set the items / data source of this adapter
+     * Set the dataSets / data source of this adapter
      *
-     * @param items The items / data source
+     * @param dataSets The dataSets / data source
      */
-    public void setItems(T items) {
-        this.items = items;
+    public void setDataSets(T dataSets) {
+        this.dataSets = dataSets;
     }
 
     public GridLayoutManager.SpanSizeLookup getSpanSizeLookup(final int spanCount) {
         return new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                return delegatesManager.getSpanSize(items, position, spanCount);
+                return delegatesManager.getSpanSize(dataSets, position, spanCount);
             }
         };
     }

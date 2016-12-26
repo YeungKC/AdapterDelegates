@@ -49,7 +49,7 @@ public class MultiTypeActivity extends AppCompatActivity {
 
         ArrayList<Object> dataSets = initData();
 
-        adapter.setItems(dataSets);
+        adapter.setDataSets(dataSets);
 
         RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
         rv.setLayoutManager(layout);

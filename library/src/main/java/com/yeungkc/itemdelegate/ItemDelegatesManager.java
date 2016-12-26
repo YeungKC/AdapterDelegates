@@ -201,17 +201,17 @@ public class ItemDelegatesManager<T> {
      * Must be called from {@link RecyclerView.Adapter#getItemViewType(int)}. Internally it scans all
      * the registered {@link ItemDelegate} and picks the right one to return the ViewType integer.
      *
-     * @param items    Adapter's data source
+     * @param dataSets    Adapter's data source
      * @param position the position in adapters data source
      * @return the ViewType (integer). Returns {@link #FALLBACK_DELEGATE_VIEW_TYPE} in case that the
      * fallback adapter delegate should be used
      * @throws IllegalArgumentException if no {@link ItemDelegate} has been found that is
      *                                  responsible for the given data element in data set (No {@link ItemDelegate} for the given
      *                                  ViewType)
-     * @throws NullPointerException     if items is null
+     * @throws NullPointerException     if dataSets is null
      */
-    public int getItemViewType(@NonNull T items, int position) {
-        ItemDelegate<T> delegate = getDelegate(items, position);
+    public int getItemViewType(@NonNull T dataSets, int position) {
+        ItemDelegate<T> delegate = getDelegate(dataSets, position);
 
         if (delegate == fallbackDelegate) {
             return FALLBACK_DELEGATE_VIEW_TYPE;
@@ -219,16 +219,16 @@ public class ItemDelegatesManager<T> {
         return delegates.indexOfValue(delegate);
     }
 
-    public ItemDelegate<T> getDelegate(@NonNull T items, int position) {
+    public ItemDelegate<T> getDelegate(@NonNull T dataSets, int position) {
 
-        if (items == null) {
-            throw new NullPointerException("Items datasource is null!");
+        if (dataSets == null) {
+            throw new NullPointerException("dataSets datasource is null!");
         }
 
         int delegatesCount = delegates.size();
         for (int i = 0; i < delegatesCount; i++) {
             ItemDelegate<T> delegate = delegates.valueAt(i);
-            if (delegate.isForViewType(items, position)) {
+            if (delegate.isForViewType(dataSets, position)) {
                 return delegate;
             }
         }
@@ -241,9 +241,9 @@ public class ItemDelegatesManager<T> {
                 "No ItemDelegate added that matches position=" + position + " in data source");
     }
 
-    public long getItemId(@NonNull T items, int position) {
-        ItemDelegate<T> delegate = getDelegate(items, position);
-        return delegate.getItemId(items, position);
+    public long getItemId(@NonNull T dataSets, int position) {
+        ItemDelegate<T> delegate = getDelegate(dataSets, position);
+        return delegate.getItemId(dataSets, position);
     }
 
     /**
@@ -300,29 +300,29 @@ public class ItemDelegatesManager<T> {
      * Must be called from {@link RecyclerView.Adapter#onBindViewHolder(RecyclerView.ViewHolder, int,
      * List)}
      *
-     * @param items      Adapter's data source
+     * @param dataSets      Adapter's data source
      * @param position   the position in data source
      * @param viewHolder the ViewHolder to bind
      * @throws NullPointerException if no ItemDelegate has been registered for ViewHolders
      *                              viewType
      */
-    public void onBindViewHolder(@NonNull T items, int position,
+    public void onBindViewHolder(@NonNull T dataSets, int position,
                                  @NonNull RecyclerView.ViewHolder viewHolder) {
-        onBindViewHolder(items, position, viewHolder, PAYLOADS_EMPTY_LIST);
+        onBindViewHolder(dataSets, position, viewHolder, PAYLOADS_EMPTY_LIST);
     }
 
     /**
      * Must be called from{@link RecyclerView.Adapter#onBindViewHolder(RecyclerView.ViewHolder, int,
      * List)}
      *
-     * @param items      Adapter's data source
+     * @param dataSets      Adapter's data source
      * @param position   the position in data source
      * @param viewHolder the ViewHolder to bind
      * @param payloads   A non-null list of merged payloads. Can be empty list if requires full update.
      * @throws NullPointerException if no ItemDelegate has been registered for ViewHolders
      *                              viewType
      */
-    public void onBindViewHolder(@NonNull T items, int position,
+    public void onBindViewHolder(@NonNull T dataSets, int position,
                                  @NonNull RecyclerView.ViewHolder viewHolder, @NonNull List payloads) {
 
         ItemDelegate<T> delegate = getDelegateForViewType(viewHolder.getItemViewType());
@@ -332,7 +332,7 @@ public class ItemDelegatesManager<T> {
                     + " for viewType = "
                     + viewHolder.getItemViewType());
         }
-        delegate.onBindViewHolder(items, position, viewHolder, payloads);
+        delegate.onBindViewHolder(dataSets, position, viewHolder, payloads);
     }
 
     /**
@@ -457,7 +457,7 @@ public class ItemDelegatesManager<T> {
         return this;
     }
 
-    public int getSpanSize(@NonNull T items, int position, int spanCount) {
-        return getDelegate(items, position).getSpanSize(items, position, spanCount);
+    public int getSpanSize(@NonNull T dataSets, int position, int spanCount) {
+        return getDelegate(dataSets, position).getSpanSize(dataSets, position, spanCount);
     }
 }

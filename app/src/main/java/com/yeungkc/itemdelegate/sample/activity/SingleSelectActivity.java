@@ -46,7 +46,7 @@ public class SingleSelectActivity extends AppCompatActivity {
 
         mDataSets = initData();
 
-        adapter.setItems(mDataSets);
+        adapter.setDataSets(mDataSets);
 
         RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
         rv.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));

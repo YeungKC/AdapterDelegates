@@ -19,7 +19,7 @@ import static com.yeungkc.itemdelegate.sample.R.id.rv;
 
 public class RvItemDelegate extends AbsListItemItemDelegate<List<Post>,List<Post>,RvItemDelegate.RvViewHolder> {
     @Override
-    protected boolean isForViewType(@NonNull List<Post> item, @NonNull List<List<Post>> items, int position) {
+    protected boolean isForViewType(@NonNull List<Post> data, @NonNull List<List<Post>> dataSets, int position) {
         return true;
     }
 
@@ -30,13 +30,13 @@ public class RvItemDelegate extends AbsListItemItemDelegate<List<Post>,List<Post
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull List<Post> item, @NonNull RvItemDelegate.RvViewHolder viewHolder, @NonNull List payloads) {
-        viewHolder.bind(item);
+    protected void onBindViewHolder(@NonNull List<Post> data, @NonNull RvItemDelegate.RvViewHolder viewHolder, @NonNull List payloads) {
+        viewHolder.bind(data);
     }
 
     @Override
-    protected long getItemId(@NonNull List<Post> item, @NonNull List<List<Post>> items, int position) {
-        return item.hashCode();
+    protected long getItemId(@NonNull List<Post> data, @NonNull List<List<Post>> dataSets, int position) {
+        return data.hashCode();
     }
 
     public class RvViewHolder extends RecyclerView.ViewHolder {
@@ -69,7 +69,7 @@ public class RvItemDelegate extends AbsListItemItemDelegate<List<Post>,List<Post
 
 
         public void bind(List item) {
-            mAdapter.setItems(item);
+            mAdapter.setDataSets(item);
         }
     }
 }

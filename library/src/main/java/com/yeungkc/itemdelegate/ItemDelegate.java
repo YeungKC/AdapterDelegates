@@ -38,11 +38,11 @@ public abstract class ItemDelegate<T> {
      * Called to determine whether this AdapterDelegate is the responsible for the given data
      * element.
      *
-     * @param items    The data source of the Adapter
+     * @param dataSets    The data source of the Adapter
      * @param position The position in the datasource
      * @return true, if this item is responsible,  otherwise false
      */
-    protected abstract boolean isForViewType(@NonNull T items, int position);
+    protected abstract boolean isForViewType(@NonNull T dataSets, int position);
 
     /**
      * Creates the  {@link RecyclerView.ViewHolder} for the given data source item
@@ -56,12 +56,12 @@ public abstract class ItemDelegate<T> {
     /**
      * Called to bind the {@link RecyclerView.ViewHolder} to the item of the datas source set
      *
-     * @param items    The data source
+     * @param dataSets    The data source
      * @param position The position in the datasource
      * @param holder   The {@link RecyclerView.ViewHolder} to bind
      * @param payloads A non-null list of merged payloads. Can be empty list if requires full update.
      */
-    protected abstract void onBindViewHolder(@NonNull T items, int position,
+    protected abstract void onBindViewHolder(@NonNull T dataSets, int position,
                                              @NonNull RecyclerView.ViewHolder holder, @NonNull List payloads);
 
     /**
@@ -151,11 +151,11 @@ public abstract class ItemDelegate<T> {
     protected void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
     }
 
-    protected int getSpanSize(@NonNull T items, int position, int spanCount) {
+    protected int getSpanSize(@NonNull T dataSets, int position, int spanCount) {
         return 1;
     }
 
-    protected long getItemId(@NonNull T items, int position) {
+    protected long getItemId(@NonNull T dataSets, int position) {
         return RecyclerView.NO_ID;
     }
 }

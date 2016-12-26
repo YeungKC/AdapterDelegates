@@ -46,7 +46,7 @@ public class MultiSelectActivity extends AppCompatActivity {
 
         ArrayList<Object> dataSets = initData();
 
-        adapter.setItems(dataSets);
+        adapter.setDataSets(dataSets);
 
         RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
         rv.setLayoutManager(layout);

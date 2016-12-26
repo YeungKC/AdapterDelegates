@@ -20,19 +20,19 @@ public class AbsListItemItemDelegateTest {
 
   @Test public void invokeMethods() {
 
-    List<Animal> items = new ArrayList<>();
-    items.add(new Cat());
+    List<Animal> dataSets = new ArrayList<>();
+    dataSets.add(new Cat());
 
     CatAbsListItemItemDelegate delegate = new CatAbsListItemItemDelegate();
 
-    delegate.isForViewType(items, 0);
+    delegate.isForViewType(dataSets, 0);
     Assert.assertTrue(delegate.isForViewTypeCalled);
 
     ViewGroup parent = Mockito.mock(ViewGroup.class);
     CatViewHolder vh = delegate.onCreateViewHolder(parent);
     Assert.assertTrue(delegate.onCreateViewHolderCalled);
 
-    delegate.onBindViewHolder(items, 0, vh, new ArrayList<Object>());
+    delegate.onBindViewHolder(dataSets, 0, vh, new ArrayList<Object>());
     Assert.assertTrue(delegate.onBindViewHolderCalled);
 
 
@@ -59,7 +59,7 @@ public class AbsListItemItemDelegateTest {
 
 
     @Override
-    protected boolean isForViewType(@NonNull Animal item, @NonNull List<Animal> items, int position) {
+    protected boolean isForViewType(@NonNull Animal data, @NonNull List<Animal> dataSets, int position) {
       isForViewTypeCalled = true;
       return false;
     }
@@ -70,7 +70,7 @@ public class AbsListItemItemDelegateTest {
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull Cat item, @NonNull CatViewHolder viewHolder, @NonNull List payloads) {
+    protected void onBindViewHolder(@NonNull Cat data, @NonNull CatViewHolder viewHolder, @NonNull List payloads) {
       onBindViewHolderCalled = true;
     }
 

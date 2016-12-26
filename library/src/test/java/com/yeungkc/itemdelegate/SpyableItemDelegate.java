@@ -52,7 +52,7 @@ public class SpyableItemDelegate<T> extends ItemDelegate<T> {
     onBindViewHolderPosition = -1;
   }
 
-  @Override public boolean isForViewType(@NonNull T items, int position) {
+  @Override public boolean isForViewType(@NonNull T dataSets, int position) {
 
     boolean isForThat = position == viewType;
     if (isForThat) {
@@ -68,8 +68,8 @@ public class SpyableItemDelegate<T> extends ItemDelegate<T> {
     return viewHolder;
   }
 
-  @Override public void onBindViewHolder(@NonNull T items, int position,
-      @NonNull RecyclerView.ViewHolder holder, @Nullable List payloads) {
+  @Override public void onBindViewHolder(@NonNull T dataSets, int position,
+                                         @NonNull RecyclerView.ViewHolder holder, @Nullable List payloads) {
     onBindViewHolderCalled = true;
     onBindViewHolderPosition = position;
   }

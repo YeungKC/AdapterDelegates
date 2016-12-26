@@ -38,7 +38,7 @@ public class RecyclerViewNestedActivity extends AppCompatActivity {
 
         ArrayList<List<Post>> dataSets = initData();
 
-        adapter.setItems(dataSets);
+        adapter.setDataSets(dataSets);
 
         RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
         rv.setLayoutManager(layout);

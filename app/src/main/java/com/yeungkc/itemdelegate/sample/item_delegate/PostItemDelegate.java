@@ -16,8 +16,8 @@ import java.util.List;
 
 public class PostItemDelegate extends AbsListItemItemDelegate<Post,Object,PostItemDelegate.PostViewHolder>{
     @Override
-    protected boolean isForViewType(@NonNull Object item, @NonNull List<Object> items, int position) {
-        return item instanceof Post;
+    protected boolean isForViewType(@NonNull Object data, @NonNull List<Object> dataSets, int position) {
+        return data instanceof Post;
     }
 
     @NonNull
@@ -27,19 +27,19 @@ public class PostItemDelegate extends AbsListItemItemDelegate<Post,Object,PostIt
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull Post item, @NonNull PostViewHolder viewHolder, @NonNull List payloads) {
-        viewHolder.bind(item);
+    protected void onBindViewHolder(@NonNull Post data, @NonNull PostViewHolder viewHolder, @NonNull List payloads) {
+        viewHolder.bind(data);
     }
 
     @Override
-    protected long getItemId(@NonNull Post item, @NonNull List<Object> items, int position) {
-        return item.hashCode();
+    protected long getItemId(@NonNull Post data, @NonNull List<Object> dataSets, int position) {
+        return data.hashCode();
     }
 
     @Override
-    protected int getSpanSize(@NonNull List<Object> items, int position, int spanCount) {
+    protected int getSpanSize(@NonNull List<Object> dataSets, int position, int spanCount) {
         // default value = 1
-        return super.getSpanSize(items, position, spanCount);
+        return super.getSpanSize(dataSets, position, spanCount);
     }
 
     class PostViewHolder extends RecyclerView.ViewHolder {
