@@ -41,7 +41,7 @@ public class MultiTypeActivity extends AppCompatActivity {
         listItemDelegatesManager.addDelegate(new CategoryItemDelegate());
         listItemDelegatesManager.addDelegate(new PostItemDelegate());
 
-        ListDelegationAdapter<List<Object>> adapter = new ListDelegationAdapter<>(listItemDelegatesManager);
+        ListDelegationAdapter<Object> adapter = new ListDelegationAdapter<>(listItemDelegatesManager);
         adapter.setHasStableIds(true);
 
         GridLayoutManager layout = new GridLayoutManager(this, mSpanCount);

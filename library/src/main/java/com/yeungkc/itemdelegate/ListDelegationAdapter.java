@@ -28,12 +28,12 @@ import java.util.List;
  * @param <T> The type of the dataSets. Must be something that extends from List like List<Foo>
  * @author Hannes Dorfmann
  */
-public class ListDelegationAdapter<T extends List<?>> extends AbsDelegationAdapter<T> {
+public class ListDelegationAdapter<T> extends AbsDelegationAdapter<List<T>> {
 
     public ListDelegationAdapter() {
     }
 
-    public ListDelegationAdapter(@NonNull ItemDelegatesManager<T> delegatesManager) {
+    public ListDelegationAdapter(@NonNull ItemDelegatesManager<List<T>> delegatesManager) {
         super(delegatesManager);
     }
 
