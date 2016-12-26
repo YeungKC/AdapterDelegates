@@ -17,24 +17,27 @@
 
 ### 如何依赖
 1. 增加 [jitPack](https://jitpack.io/) 到你的 [repositories](https://docs.gradle.org/current/userguide/artifact_dependencies_tutorial.html#sec:repositories_tutorial)
-  ```groovy
-  allprojects {
-    repositories {
-        ...
-        maven { url 'https://jitpack.io' }
-    }
-    }
-  ```
+
+   ```groovy
+   allprojects {
+     repositories {
+       ...
+       maven { url 'https://jitpack.io' }
+     }
+   }
+   ```
+
+
 2. 添加依赖关系
-  ```groovy
-  dependencies {
-    compile 'com.github.YeungKC:ItemDelegate:4.4.0'
-  }
-  ```
 
-  ### 基本使用
+   ```groovy
+   dependencies {
+     compile 'com.github.YeungKC:ItemDelegate:4.4.0'
+   }
+   ```
+
+### 基本使用
 请查看 Demo
-
 
 ### 感谢
 [sockeqwe](https://github.com/sockeqwe) 和他的 [AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates)
