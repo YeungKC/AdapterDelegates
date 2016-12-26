@@ -1,3 +1,5 @@
+### 关于
+
 #### 关于 [AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates)
 
 [翻译版：逃离 adapter 的地狱—针对多个 View type 的组合实现方案](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0810/3282.html)
