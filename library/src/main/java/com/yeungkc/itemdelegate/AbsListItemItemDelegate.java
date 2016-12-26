@@ -20,8 +20,8 @@ public abstract class AbsListItemItemDelegate<I extends T, T, VH extends Recycle
         extends ItemDelegate<List<T>> {
 
     @Override
-    protected final boolean isForViewType(@NonNull List<T> items, int position) {
-        return isForViewType(items.get(position), items, position);
+    protected final boolean isForViewType(@NonNull List<T> dataSets, int position) {
+        return isForViewType(dataSets.get(position), dataSets, position);
     }
 
     /**
@@ -29,12 +29,12 @@ public abstract class AbsListItemItemDelegate<I extends T, T, VH extends Recycle
      * list or not
      * element
      *
-     * @param item     The item from the list at the given position
-     * @param items    The items from adapters dataset
-     * @param position The items position in the dataset (list)
+     * @param data     The item from the list at the given position
+     * @param dataSets    The dataSets from adapters dataset
+     * @param position The dataSets position in the dataset (list)
      * @return true if this ItemDelegate is responsible for that, otherwise false
      */
-    protected abstract boolean isForViewType(@NonNull T item, @NonNull List<T> items, int position);
+    protected abstract boolean isForViewType(@NonNull T data, @NonNull List<T> dataSets, int position);
 
     /**
      * Creates the  {@link RecyclerView.ViewHolder} for the given data source item
@@ -48,28 +48,28 @@ public abstract class AbsListItemItemDelegate<I extends T, T, VH extends Recycle
 
     @Override
     @SuppressWarnings("unchecked")
-    protected final void onBindViewHolder(@NonNull List<T> items, int position,
+    protected final void onBindViewHolder(@NonNull List<T> dataSets, int position,
                                           @NonNull RecyclerView.ViewHolder holder, @NonNull List payloads) {
-        onBindViewHolder((I) items.get(position), (VH) holder, payloads);
+        onBindViewHolder((I) dataSets.get(position), (VH) holder, payloads);
     }
 
     /**
      * Called to bind the {@link RecyclerView.ViewHolder} to the item of the dataset
      *
-     * @param item       The data item
+     * @param data       The data item
      * @param viewHolder The ViewHolder
      * @param viewHolder The payloads
      */
-    protected abstract void onBindViewHolder(@NonNull I item, @NonNull VH viewHolder,
+    protected abstract void onBindViewHolder(@NonNull I data, @NonNull VH viewHolder,
                                              @NonNull List payloads);
 
     @Override
     @SuppressWarnings("unchecked")
-    protected final long getItemId(@NonNull List<T> items, int position) {
-        return getItemId((I) items.get(position), items, position);
+    protected final long getItemId(@NonNull List<T> dataSets, int position) {
+        return getItemId((I) dataSets.get(position), dataSets, position);
     }
 
-    protected long getItemId(@NonNull I item, @NonNull List<T> items, int position) {
-        return super.getItemId(items, position);
+    protected long getItemId(@NonNull I data, @NonNull List<T> dataSets, int position) {
+        return super.getItemId(dataSets, position);
     }
 }

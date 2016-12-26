@@ -14,12 +14,12 @@ public abstract class AbsFallbackItemDelegate<T> extends ItemDelegate<T> {
     /**
      * Not needed, because never called for fallback adapter delegates.
      *
-     * @param items    The data source of the Adapter
+     * @param dataSets    The data source of the Adapter
      * @param position The position in the datasource
      * @return true
      */
     @Override
-    final protected boolean isForViewType(@NonNull Object items, int position) {
+    final protected boolean isForViewType(@NonNull Object dataSets, int position) {
         return true;
     }
 }

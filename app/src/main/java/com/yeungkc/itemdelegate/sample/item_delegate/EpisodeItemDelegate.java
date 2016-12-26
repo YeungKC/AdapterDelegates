@@ -35,8 +35,8 @@ public class EpisodeItemDelegate extends AbsListItemItemDelegate<Episode, Object
     }
 
     @Override
-    protected boolean isForViewType(@NonNull Object item, @NonNull List<Object> items, int position) {
-        return item instanceof Episode;
+    protected boolean isForViewType(@NonNull Object data, @NonNull List<Object> dataSets, int position) {
+        return data instanceof Episode;
     }
 
     @NonNull
@@ -46,13 +46,13 @@ public class EpisodeItemDelegate extends AbsListItemItemDelegate<Episode, Object
     }
 
     @Override
-    protected long getItemId(@NonNull Episode item, @NonNull List<Object> items, int position) {
-        return item.hashCode();
+    protected long getItemId(@NonNull Episode data, @NonNull List<Object> dataSets, int position) {
+        return data.hashCode();
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull Episode item, @NonNull EpisodeViewHolder viewHolder, @NonNull List payloads) {
-        viewHolder.bind(item);
+    protected void onBindViewHolder(@NonNull Episode data, @NonNull EpisodeViewHolder viewHolder, @NonNull List payloads) {
+        viewHolder.bind(data);
     }
 
     class EpisodeViewHolder extends RecyclerView.ViewHolder{

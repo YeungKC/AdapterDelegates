@@ -21,7 +21,7 @@ public class CompanyItemDelegate extends AbsListItemItemDelegate<Company, Compan
     }
 
     @Override
-    protected boolean isForViewType(@NonNull Company item, @NonNull List<Company> items, int position) {
+    protected boolean isForViewType(@NonNull Company data, @NonNull List<Company> dataSets, int position) {
         return true;
     }
 
@@ -32,13 +32,13 @@ public class CompanyItemDelegate extends AbsListItemItemDelegate<Company, Compan
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull Company item, @NonNull CompanyViewHolder viewHolder, @NonNull List payloads) {
-        viewHolder.bind(item);
+    protected void onBindViewHolder(@NonNull Company data, @NonNull CompanyViewHolder viewHolder, @NonNull List payloads) {
+        viewHolder.bind(data);
     }
 
     @Override
-    protected long getItemId(@NonNull Company item, @NonNull List<Company> items, int position) {
-        return item.hashCode();
+    protected long getItemId(@NonNull Company data, @NonNull List<Company> dataSets, int position) {
+        return data.hashCode();
     }
 
     public class CompanyViewHolder extends RecyclerView.ViewHolder {

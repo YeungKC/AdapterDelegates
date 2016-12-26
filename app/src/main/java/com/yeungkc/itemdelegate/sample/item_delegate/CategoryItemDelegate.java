@@ -16,8 +16,8 @@ import java.util.List;
 public class CategoryItemDelegate extends AbsListItemItemDelegate<Category, Object, CategoryItemDelegate.CategoryViewHolder> {
 
     @Override
-    protected boolean isForViewType(@NonNull Object item, @NonNull List<Object> items, int position) {
-        return item instanceof Category;
+    protected boolean isForViewType(@NonNull Object data, @NonNull List<Object> dataSets, int position) {
+        return data instanceof Category;
     }
 
     @NonNull
@@ -27,17 +27,17 @@ public class CategoryItemDelegate extends AbsListItemItemDelegate<Category, Obje
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull Category item, @NonNull CategoryViewHolder viewHolder, @NonNull List payloads) {
-        viewHolder.bind(item);
+    protected void onBindViewHolder(@NonNull Category data, @NonNull CategoryViewHolder viewHolder, @NonNull List payloads) {
+        viewHolder.bind(data);
     }
 
     @Override
-    protected long getItemId(@NonNull Category item, @NonNull List<Object> items, int position) {
-        return item.hashCode();
+    protected long getItemId(@NonNull Category data, @NonNull List<Object> dataSets, int position) {
+        return data.hashCode();
     }
 
     @Override
-    protected int getSpanSize(@NonNull List<Object> items, int position, int spanCount) {
+    protected int getSpanSize(@NonNull List<Object> dataSets, int position, int spanCount) {
         return spanCount;
     }
 

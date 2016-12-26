@@ -4,11 +4,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
+
+import junit.framework.Assert;
+
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import junit.framework.Assert;
-import org.junit.Test;
 
 /**
  * @author Hannes Dorfmann
@@ -18,7 +21,7 @@ public class ItemDelegatesManagerTest {
   @Test public void addRemove() {
 
     ItemDelegate d1 = new ItemDelegate() {
-      @Override public boolean isForViewType(@NonNull Object items, int position) {
+      @Override public boolean isForViewType(@NonNull Object dataSets, int position) {
         return false;
       }
 
@@ -27,13 +30,13 @@ public class ItemDelegatesManagerTest {
       }
 
 	    @Override
-	    public void onBindViewHolder(@NonNull Object items, int position, @NonNull RecyclerView.ViewHolder holder, @Nullable List payloads) {
+	    public void onBindViewHolder(@NonNull Object dataSets, int position, @NonNull RecyclerView.ViewHolder holder, @Nullable List payloads) {
 
 	    }
     };
 
     ItemDelegate d2 = new ItemDelegate() {
-      @Override public boolean isForViewType(@NonNull Object items, int position) {
+      @Override public boolean isForViewType(@NonNull Object dataSets, int position) {
         return false;
       }
 
@@ -42,7 +45,7 @@ public class ItemDelegatesManagerTest {
       }
 
 	    @Override
-	    public void onBindViewHolder(@NonNull Object items, int position, @NonNull RecyclerView.ViewHolder holder, @Nullable List payloads) {
+	    public void onBindViewHolder(@NonNull Object dataSets, int position, @NonNull RecyclerView.ViewHolder holder, @Nullable List payloads) {
 
 	    }
 
@@ -86,7 +89,7 @@ public class ItemDelegatesManagerTest {
   @Test public void isForViewType() {
 
     // 3 elements and each element has it's own viewtype and hence own delegate
-    List<Object> items = Arrays.asList(new Object(), new Object(), new Object());
+    List<Object> dataSets = Arrays.asList(new Object(), new Object(), new Object());
     SpyableItemDelegate<List<Object>> d0 = new SpyableItemDelegate<>(0);
     SpyableItemDelegate<List<Object>> d1 = new SpyableItemDelegate<>(1);
     SpyableItemDelegate<List<Object>> d2 = new SpyableItemDelegate<>(2);
@@ -97,7 +100,7 @@ public class ItemDelegatesManagerTest {
     manager.addDelegate(d2);
 
     // Test first item
-    int viewType = manager.getItemViewType(items, 0);
+    int viewType = manager.getItemViewType(dataSets, 0);
     Assert.assertEquals(viewType, 0);
     Assert.assertTrue(d0.isForViewTypeReturnedYes);
     Assert.assertFalse(d1.isForViewTypeReturnedYes);
@@ -105,7 +108,7 @@ public class ItemDelegatesManagerTest {
     resetDelegates(d0, d1, d2);
 
     // Test second item
-    viewType = manager.getItemViewType(items, 1);
+    viewType = manager.getItemViewType(dataSets, 1);
     Assert.assertEquals(viewType, 1);
     Assert.assertTrue(d1.isForViewTypeReturnedYes);
     Assert.assertFalse(d0.isForViewTypeReturnedYes);
@@ -113,7 +116,7 @@ public class ItemDelegatesManagerTest {
     resetDelegates(d0, d1, d2);
 
     // Test third item
-    viewType = manager.getItemViewType(items, 2);
+    viewType = manager.getItemViewType(dataSets, 2);
     Assert.assertEquals(viewType, 2);
     Assert.assertTrue(d2.isForViewTypeReturnedYes);
     Assert.assertFalse(d0.isForViewTypeReturnedYes);
@@ -124,7 +127,7 @@ public class ItemDelegatesManagerTest {
   @Test public void onCreateViewHolder() {
 
     // 3 elements and each element has it's own viewtype and hence own delegate
-    List<Object> items = Arrays.asList(new Object(), new Object(), new Object());
+    List<Object> dataSets = Arrays.asList(new Object(), new Object(), new Object());
     SpyableItemDelegate<List<Object>> d0 = new SpyableItemDelegate<>(0);
     SpyableItemDelegate<List<Object>> d1 = new SpyableItemDelegate<>(1);
     SpyableItemDelegate<List<Object>> d2 = new SpyableItemDelegate<>(2);
@@ -163,7 +166,7 @@ public class ItemDelegatesManagerTest {
   @Test public void onBindViewHolder() {
 
     // 3 elements and each element has it's own viewtype and hence own delegate
-    List<Object> items = Arrays.asList(new Object(), new Object(), new Object());
+    List<Object> dataSets = Arrays.asList(new Object(), new Object(), new Object());
     SpyableItemDelegate<List<Object>> d0 = new SpyableItemDelegate<>(0);
     SpyableItemDelegate<List<Object>> d1 = new SpyableItemDelegate<>(1);
     SpyableItemDelegate<List<Object>> d2 = new SpyableItemDelegate<>(2);
@@ -174,7 +177,7 @@ public class ItemDelegatesManagerTest {
     manager.addDelegate(d2);
 
     // Test first item
-    manager.onBindViewHolder(items, 0, d0.viewHolder);
+    manager.onBindViewHolder(dataSets, 0, d0.viewHolder);
     Assert.assertTrue(d0.onBindViewHolderCalled);
     Assert.assertFalse(d1.onBindViewHolderCalled);
     Assert.assertFalse(d2.onBindViewHolderCalled);
@@ -182,7 +185,7 @@ public class ItemDelegatesManagerTest {
     resetDelegates(d0, d1, d2);
 
     // Test second item
-    manager.onBindViewHolder(items, 1, d1.viewHolder);
+    manager.onBindViewHolder(dataSets, 1, d1.viewHolder);
     Assert.assertTrue(d1.onBindViewHolderCalled);
     Assert.assertFalse(d0.onBindViewHolderCalled);
     Assert.assertFalse(d2.onBindViewHolderCalled);
@@ -190,7 +193,7 @@ public class ItemDelegatesManagerTest {
     resetDelegates(d0, d1, d2);
 
     // Test third item
-    manager.onBindViewHolder(items, 2, d2.viewHolder);
+    manager.onBindViewHolder(dataSets, 2, d2.viewHolder);
     Assert.assertTrue(d2.onBindViewHolderCalled);
     Assert.assertFalse(d1.onBindViewHolderCalled);
     Assert.assertFalse(d0.onBindViewHolderCalled);
@@ -202,7 +205,7 @@ public class ItemDelegatesManagerTest {
 
 
     // 3 elements and each element has it's own viewtype and hence own delegate
-    List<Object> items = Arrays.asList(new Object(), new Object(), new Object());
+    List<Object> dataSets = Arrays.asList(new Object(), new Object(), new Object());
     SpyableItemDelegate<List<Object>> d0 = new SpyableItemDelegate<>(0);
     SpyableItemDelegate<List<Object>> d1 = new SpyableItemDelegate<>(1);
     SpyableItemDelegate<List<Object>> d2 = new SpyableItemDelegate<>(2);
@@ -242,7 +245,7 @@ public class ItemDelegatesManagerTest {
 
 
     // 3 elements and each element has it's own viewtype and hence own delegate
-    List<Object> items = Arrays.asList(new Object(), new Object(), new Object());
+    List<Object> dataSets = Arrays.asList(new Object(), new Object(), new Object());
     SpyableItemDelegate<List<Object>> d0 = new SpyableItemDelegate<>(0);
     SpyableItemDelegate<List<Object>> d1 = new SpyableItemDelegate<>(1);
     SpyableItemDelegate<List<Object>> d2 = new SpyableItemDelegate<>(2);
@@ -281,7 +284,7 @@ public class ItemDelegatesManagerTest {
 
 
     // 3 elements and each element has it's own viewtype and hence own delegate
-    List<Object> items = Arrays.asList(new Object(), new Object(), new Object());
+    List<Object> dataSets = Arrays.asList(new Object(), new Object(), new Object());
     SpyableItemDelegate<List<Object>> d0 = new SpyableItemDelegate<>(0);
     SpyableItemDelegate<List<Object>> d1 = new SpyableItemDelegate<>(1);
     SpyableItemDelegate<List<Object>> d2 = new SpyableItemDelegate<>(2);
@@ -320,7 +323,7 @@ public class ItemDelegatesManagerTest {
 
 
     // 3 elements and each element has it's own viewtype and hence own delegate
-    List<Object> items = Arrays.asList(new Object(), new Object(), new Object());
+    List<Object> dataSets = Arrays.asList(new Object(), new Object(), new Object());
     SpyableItemDelegate<List<Object>> d0 = new SpyableItemDelegate<>(0);
     SpyableItemDelegate<List<Object>> d1 = new SpyableItemDelegate<>(1);
     SpyableItemDelegate<List<Object>> d2 = new SpyableItemDelegate<>(2);
@@ -358,7 +361,7 @@ public class ItemDelegatesManagerTest {
   @Test public void allMethodsTest() {
 
     // 3 elements and each element has it's own viewtype and hence own delegate
-    List<Object> items = Arrays.asList(new Object(), new Object(), new Object());
+    List<Object> dataSets = Arrays.asList(new Object(), new Object(), new Object());
     SpyableItemDelegate<List<Object>> d0 = new SpyableItemDelegate<>(0);
     SpyableItemDelegate<List<Object>> d1 = new SpyableItemDelegate<>(1);
     SpyableItemDelegate<List<Object>> d2 = new SpyableItemDelegate<>(2);
@@ -372,10 +375,10 @@ public class ItemDelegatesManagerTest {
         d0, d1, d2
     };
 
-    for (int i = 0; i < items.size(); i++) {
+    for (int i = 0; i < dataSets.size(); i++) {
       SpyableItemDelegate<List<Object>> expectedDelegate = delegates[i];
 
-      int viewType = manager.getItemViewType(items, i);
+      int viewType = manager.getItemViewType(dataSets, i);
 
       // Test view type
       Assert.assertEquals(viewType, expectedDelegate.viewType);
@@ -400,7 +403,7 @@ public class ItemDelegatesManagerTest {
       }
 
       // Test bind viewHolder
-      manager.onBindViewHolder(items, i, vh);
+      manager.onBindViewHolder(dataSets, i, vh);
       for (SpyableItemDelegate d : delegates) {
         if (d == expectedDelegate) {
           Assert.assertTrue(d.onBindViewHolderCalled);
@@ -485,8 +488,8 @@ public class ItemDelegatesManagerTest {
 
     int fallbackViewType = Integer.MAX_VALUE - 1;
     int itemPosition = 1;
-    List<Object> items = new ArrayList<>();
-    items.add(new Object());
+    List<Object> dataSets = new ArrayList<>();
+    dataSets.add(new Object());
 
     ItemDelegatesManager<List<Object>> delegatesManager = new ItemDelegatesManager<>();
     SpyableItemDelegate fallbackDelegate = new SpyableItemDelegate(fallbackViewType);
@@ -503,7 +506,7 @@ public class ItemDelegatesManagerTest {
     Assert.assertFalse(otherDelegate.onCreateViewHolderCalled);
 
     // Test bind viewHolder
-    delegatesManager.onBindViewHolder(items, itemPosition, vh);
+    delegatesManager.onBindViewHolder(dataSets, itemPosition, vh);
     Assert.assertTrue(fallbackDelegate.onBindViewHolderCalled);
     Assert.assertFalse(otherDelegate.onBindViewHolderCalled);
   }

@@ -21,11 +21,11 @@ import android.support.annotation.NonNull;
 import java.util.List;
 
 /**
- * An adapter implementation designed for items organized in a {@link List}. This adapter
+ * An adapter implementation designed for dataSets organized in a {@link List}. This adapter
  * implementation is ready to go. All you have to do is to add {@link ItemDelegate}s to the
  * internal {@link ItemDelegatesManager} i.e.
  *
- * @param <T> The type of the items. Must be something that extends from List like List<Foo>
+ * @param <T> The type of the dataSets. Must be something that extends from List like List<Foo>
  * @author Hannes Dorfmann
  */
 public class ListDelegationAdapter<T extends List<?>> extends AbsDelegationAdapter<T> {
@@ -39,6 +39,6 @@ public class ListDelegationAdapter<T extends List<?>> extends AbsDelegationAdapt
 
     @Override
     public int getItemCount() {
-        return items == null ? 0 : items.size();
+        return dataSets == null ? 0 : dataSets.size();
     }
 }
