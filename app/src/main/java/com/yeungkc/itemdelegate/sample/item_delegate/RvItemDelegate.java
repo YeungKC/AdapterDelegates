@@ -43,7 +43,7 @@ public class RvItemDelegate extends AbsListItemItemDelegate<List<Post>,List<Post
 
         private final RecyclerView mRv;
         private final int SPAN_COUNT = 3;
-        private final ListDelegationAdapter<List<Object>> mAdapter;
+        private final ListDelegationAdapter<Object> mAdapter;
 
         public RvViewHolder(View itemView) {
             super(itemView);
