@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:2.3.1'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -20,11 +20,11 @@ allprojects {
 
 
 ext {
-    SUPPORT_VERSION = '25.0.1'
-    recyclerView = "com.android.support:recyclerview-v7:25.0.1"
-    appCompat = "com.android.support:appcompat-v7:25.0.1"
-    design = "com.android.support:design:25.0.1"
-    supportV7 = "com.android.support:cardview-v7:25.1.0"
+    SUPPORT_VERSION = '25.3.1'
+    recyclerView = "com.android.support:recyclerview-v7:25.3.1"
+    appCompat = "com.android.support:appcompat-v7:25.3.1"
+    design = "com.android.support:design:25.3.1"
+    supportV7 = "com.android.support:cardview-v7:25.3.1"
 
-    buildTools = '25.0.1'
+    buildTools = '25.0.2'
 }
