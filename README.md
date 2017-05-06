@@ -34,7 +34,7 @@
 
    ```groovy
    dependencies {
-     compile 'com.github.YeungKC:ItemDelegate:4.4.0'
+     compile 'com.github.YeungKC:ItemDelegate:4.4.1'
    }
    ```
 
